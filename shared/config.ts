@@ -1,3 +1,7 @@
+const BACKEND = {
+	BACKEND_URL: process.env.NEXT_PUBLIC_BACKEND_URL,
+        BACKEND_TOKEN: process.env.NEXT_PUBLIC_BACKEND_TOKEN,
+}
 export const siteConfig =
   process.env.NEXT_PUBLIC_NETWORK == "opt-mainnet"
     ? {
@@ -15,11 +19,10 @@ export const siteConfig =
         REWARDS_WRAPPER: "0xC78A09D6a4badecc7614A339FD264B7290361ef1",
         REWARDS_DERIVER: "0xaFB71004636fCAf6fb15959A7dD19db4779c3237",
         CAMPAIGN_TRACKER_ADDRESS: "0x3Dadc74B465034276bE0Fa55240e1a67d7e3a266",
-        BACKEND_URL: "",
-        BACKEND_TOKEN: "",
+	LOGO_BADGE: "Optimism",
+	...BACKEND
       }
-    : process.env.NEXT_PUBLIC_NETWORK == "opt-goerli"
-    ? {
+    : {
         CHAIN_NAME: "Optimism Goerli",
         CHAIN_ID: "0x1a4",
         NETWORK: "opt-goerli",
@@ -31,8 +34,11 @@ export const siteConfig =
         L2_BLOCK_EXPLORER_URL: "https://goerli-optimism.etherscan.io",
         L1_BRIDGE_ADDRESS: "0x8DD330DdE8D9898d43b4dc840Da27A07dF91b3c9",
         L2_BRIDGE_ADDRESS: "0x4200000000000000000000000000000000000014",
+	REWARDS_WRAPPER: "0xC78A09D6a4badecc7614A339FD264B7290361ef1",
+        REWARDS_DERIVER: "0xaFB71004636fCAf6fb15959A7dD19db4779c3237",
+        CAMPAIGN_TRACKER_ADDRESS: "0x3Dadc74B465034276bE0Fa55240e1a67d7e3a266",
         LOGO_BADGE: "Goerli",
-        BACKEND_URL: "",
-        BACKEND_TOKEN: "",
-      }
-    : {};
+        BACKEND_URL: process.env.BACKEND_URL,
+        BACKEND_TOKEN: process.env.BACKEND_TOKEN,
+	...BACKEND
+    }; 
